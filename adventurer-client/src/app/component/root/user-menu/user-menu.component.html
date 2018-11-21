@@ -1,0 +1,38 @@
+<a class="nav-link login-link" *ngIf="isLoggedIn"
+   data-target="#thirdPartiesModal"
+   (click)="open(content)">
+  <img [src]="user.image" style="width: 32px; height: 32px;">
+</a>
+
+<ng-template #content let-c="close" let-d="dismiss" let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"
+        *ngIf="isLoggedIn"
+        id="modal-basic-title2">مشخصات کاربر</h4>
+  </div>
+  <div class="modal-body" *ngIf="isLoggedIn">
+    <div class="container">
+      <div class="row" style="margin-top: 10px;">
+        <div class="col">
+          <label>{{user['username']}}</label>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+        <div class="col">
+          <img [src]="user['image']" style="width: 128px; height: 128px;">
+          <!--<button class="btn btn-outline-success" type="button" (click)="newTerminal()">ورود</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" *ngIf="isLoggedIn">
+    <button class="btn btn-outline-danger"
+            type="button" (click)="logout()">خروج</button>
+    <a class="btn btn-success"
+       [routerLink]="[{ outlets: { dashboardBody: ['user-info']} }]"
+       type="button" (click)="modal.close('user info')">صفحه کاربر</a>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" >بستن</button>
+  </div>
+</ng-template>
+
+<load-wait *ngIf="loadWaited"></load-wait>
