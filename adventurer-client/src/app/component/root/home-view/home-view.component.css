@@ -5,3 +5,13 @@
 agm-map {
   height: 300px;
 }
+
+.row {
+  margin: 0px;
+}
+
+.col-sm-4, .col-md-4 {
+  margin: 0px !important;
+  border: 1px solid gray;
+  height: 200px;
+}

@@ -99,6 +99,7 @@ export class LoginViewComponent implements OnInit {
         this.showVerify = false;
         this.loadWaited = false;
         this.isLoggedIn = true;
+        this.loggedIn();
         // this.messageService.add('با موفقیت انجام شد.');
         this.modalService.dismissAll();
       }, err => {
@@ -118,6 +119,7 @@ export class LoginViewComponent implements OnInit {
         this.user['image'] = '';
         this.loadWaited = false;
         this.isLoggedIn = false;
+        this.loggedIn();
         // this.messageService.add('با موفقیت انجام شد.');
         this.modalService.dismissAll();
       }, err => {
